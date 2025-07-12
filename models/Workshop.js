@@ -20,11 +20,19 @@ const Workshop = db.define("workshop", {
     email: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
+        unique: true,
+        validate:{
+            isEmail: {
+                msg: 'El correo electrónico debe ser válido'
+            },
+            notEmpty: {
+                msg: 'El correo electrónico no puede estar vacío'
+            }
+        }
     },
     logo: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     password: {
         type: DataTypes.TEXT,
@@ -37,7 +45,14 @@ const Workshop = db.define("workshop", {
         beforeCreate: async function(workshop) {
             const salt = await bcrypt.genSalt(10)
             workshop.password = await bcrypt.hash(workshop.password, salt)
+        },
+        beforeUpdate: async (workshop) => {
+            if (workshop.changed('password')) {
+                const salt = await bcrypt.genSalt(10);
+                workshop.password = await bcrypt.hash(workshop.password, salt);
+            }
         }
+
     }
 })
 

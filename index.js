@@ -6,6 +6,10 @@ dotenv.config({path: ".env"})
 const initModels = require("./models/initModels")
 
 
+//* Archivos de Rutas
+
+const workshopRouter = require('./routes/workshop.route.js').router
+
 
 //* Configuraciones Iniciales
 const app = express()
@@ -29,6 +33,7 @@ try {
 
 app.use(cors()) //permitiendo acceso
 app.use(express.json())
+app.use("/api/v1/workshop", workshopRouter);
 
 
 const port = process.env.PORT || 8000
