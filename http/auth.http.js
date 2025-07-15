@@ -8,6 +8,7 @@ const login = async (req, res) => {
 
         res.status(200).json({
             message: 'Login exitoso',
+            workshop,
             token
         });
     } catch (error) {

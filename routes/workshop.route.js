@@ -2,7 +2,7 @@ const router = require('express').Router();
 const multer = require('multer');
 
 //HTTP
-const { create, getById } = require('../http/workshop.http.js');
+const { create, getById, edit, deleteWorkshop } = require('../http/workshop.http.js');
 const { login } = require('../http/auth.http.js');
 
 //Validaciones 
@@ -39,7 +39,19 @@ router
         authenticate,
         handleValidation,
         getById
+    )
+    .put(
+        authenticate,
+        upload.single('logo'),
+        handleValidation,
+        edit
+    )
+    .delete(
+        authenticate,
+        handleValidation,
+        deleteWorkshop
     );
+    
 
 
 exports.router = router

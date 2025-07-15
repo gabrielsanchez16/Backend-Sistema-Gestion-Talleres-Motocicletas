@@ -34,6 +34,10 @@ const Workshop = db.define("workshop", {
         type: DataTypes.STRING,
         allowNull: true
     },
+    id_logo_public: {
+        type: DataTypes.STRING,
+        allowNull: true
+    }, 
     password: {
         type: DataTypes.TEXT,
         allowNull: false

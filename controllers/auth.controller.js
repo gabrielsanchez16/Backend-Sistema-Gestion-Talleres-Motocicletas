@@ -17,6 +17,8 @@ const login = async (email, password) => {
         throw new Error('Correo o contraseña inválidos');
     }
 
+
+
     const payload = {
         id: workshop.id,
         name: workshop.name,
@@ -24,8 +26,12 @@ const login = async (email, password) => {
     };
 
     const token = jwt.sign(payload, SECRET, { expiresIn: '8h' });
+    
+    // Convertir a objeto plano y eliminar la contraseña
+    const workshopData = workshop.toJSON();
+    delete workshopData.password;
 
-    return { token, workshop };
+    return { token, workshop: workshopData };
 };
 
 module.exports = {
