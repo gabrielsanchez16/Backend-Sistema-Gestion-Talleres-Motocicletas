@@ -9,7 +9,7 @@ const initModels = require("./models/initModels")
 //* Archivos de Rutas
 
 const workshopRouter = require('./routes/workshop.route.js').router
-
+const ownerRouter = require('./routes/owner.route.js').router
 
 //* Configuraciones Iniciales
 const app = express()
@@ -34,6 +34,7 @@ try {
 app.use(cors()) //permitiendo acceso
 app.use(express.json())
 app.use("/api/v1/workshop", workshopRouter);
+app.use("/api/v1/owner", ownerRouter);
 
 
 const port = process.env.PORT || 8000
