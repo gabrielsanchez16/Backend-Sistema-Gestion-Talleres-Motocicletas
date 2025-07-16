@@ -16,7 +16,88 @@ const create = async(req,res) => {
     }
 }
 
+const getAll = async(req,res) => {
+
+    const {id} = req.params;
+
+    if (!id) {
+        return res.status(400).json({ message: 'El id del taller es obligatorio' });
+    }
+    try {
+        const response = await getAllOwners(id);
+        res.status(200).json({
+            message: `Clientes obtenidos correctamente`,
+            Owners: response
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: error.message });
+    }
+}
+
+const getById = async(req,res) => {
+    const {id} = req.params;
+
+    if (!id) {
+        return res.status(400).json({ message: 'El id del propietario es obligatorio' });
+    }
+
+    try {
+        const response = await getOwnerById(id);
+        res.status(200).json({
+            message: `Cliente obtenido correctamente`,
+            Owner: response
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: error.message });
+    }
+}
+
+const deleteById = async(req,res) => {
+    const {id} = req.params;
+
+    if (!id) {
+        return res.status(400).json({ message: 'El id del propietario es obligatorio' });
+    }
+
+    try {
+        const response = await deleteOwner(id);
+        res.status(200).json({
+            message: `Cliente eliminado correctamente`
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: error.message });
+    }
+}
+
+
+const updated = async(req,res) => {
+    const {id} = req.params;
+    const {name,identification,email,phone} = req.body;
+
+    if (!id) {
+        return res.status(400).json({ message: 'El id del propietario es obligatorio' });
+    }
+
+    try {
+        const response = await updateOwner(id,name,identification,phone,email);
+        res.status(200).json({
+            message: `Cliente actualizado correctamente`,
+            Owner: response
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: error.message });
+    }
+}
+
 
 module.exports = {
-    create
+    create,
+    getAll,
+    getById,
+    deleteById,
+    updated
 }

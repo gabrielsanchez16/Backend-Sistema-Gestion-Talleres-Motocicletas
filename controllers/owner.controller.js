@@ -23,11 +23,14 @@ const createOwner = async (name,identification,id_workshop,phone,email) => {
 }
 
 const getAllOwners = async (id_workshop) => {
-    const owners = await Owner.findAll({
+    let owners = await Owner.findAll({
         where: {
             id_workshop
         }
     });
+    if (!owners || owners.length === 0) {
+        owners = "No hay clientes registrados en este taller"; 
+    }
     return owners;
 }
 

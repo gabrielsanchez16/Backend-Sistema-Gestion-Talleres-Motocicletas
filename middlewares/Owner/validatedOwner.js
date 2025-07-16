@@ -1,4 +1,4 @@
-const { body } = require('express-validator');
+const { body, param } = require('express-validator');
 
 const validateCreateOwner = [
     body('name')
@@ -21,7 +21,13 @@ const validateCreateOwner = [
         .notEmpty().withMessage('El id del taller es obligatorio')
 ];
 
+const validateGetAllOwners = [
+    param('id')
+        .notEmpty().withMessage('El id del taller es obligatorio')
+];
+
 
 module.exports = {
-    validateCreateOwner
+    validateCreateOwner,
+    validateGetAllOwners
 }
