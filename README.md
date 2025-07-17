@@ -21,6 +21,10 @@ Este documento resume los **siguientes pasos a seguir** ahora que ya tienes conf
 
 ## 📝 Estado del trabajo en el proyecto
 
+### 🚧 Progreso del proyecto
+
+🟩🟩🟩🟩🟩⬜⬜⬜⬜⬜ 50%
+
 - ✅ Auth
 - ✅ Brand
 - ✅ Motorcycle
