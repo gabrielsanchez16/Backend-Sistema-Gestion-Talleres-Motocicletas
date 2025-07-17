@@ -23,15 +23,15 @@ Este documento resume los **siguientes pasos a seguir** ahora que ya tienes conf
 
 ### 🚧 Progreso del proyecto
 
-🟩🟩🟩🟩🟩⬜⬜⬜⬜⬜ 50%
+🟩🟩🟩🟩🟩🟩⬜⬜⬜⬜ 65%
 
 - ✅ Auth
 - ✅ Brand
 - ✅ Motorcycle
 - ✅ Owner
 - ✅ Workshop
-- ⛔ Type
-- ⛔ Service
+- ✅ Type
+- ✅ Service
 - ⛔ WorkOrder
 - ⛔ Mechanic
 - ⛔ Photo

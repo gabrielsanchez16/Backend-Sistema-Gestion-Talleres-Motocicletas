@@ -1,8 +1,8 @@
-const {Motorcycle} = require('../models/Motorcycle.js');
+const { Motorcycle } = require('../models/Motorcycle.js');
 
 
-const createMotorcycle = async (model, plate, year, id_workshop, id_brand,id_owner) => {
-    const existMotorcycle = await Motorcycle.findOne({ where: { plate } });
+const createMotorcycle = async (model, plate, year, id_workshop, id_brand, id_owner) => {
+    const existMotorcycle = await Motorcycle.findOne({ where: { plate,id_workshop  } });
     if (existMotorcycle) {
         throw new Error('Ya existe una motocicleta con esta placa');
     };
@@ -25,7 +25,7 @@ const getAllMotorcycles = async (id_workshop) => {
         }
     });
     if (!motorcycles || motorcycles.length === 0) {
-        motorcycles = "No hay motocicletas registradas en este taller"; 
+        motorcycles = "No hay motocicletas registradas en este taller";
     }
     return motorcycles;
 }
@@ -36,7 +36,7 @@ const getMotorcycleById = async (id) => {
         motorcycle = 'Motocicleta no encontrada';
     }
     return motorcycle;
-} 
+}
 
 const deleteMotorcycle = async (id) => {
     const motorcycle = await Motorcycle.findByPk(id);
@@ -47,27 +47,31 @@ const deleteMotorcycle = async (id) => {
     return 'Motocicleta eliminada correctamente';
 }
 
-const updateMotorcycle = async (id, model, plate, year, id_workshop, id_brand, id_owner) => {
+const updateMotorcycle = async (id, model, plate, year, id_brand, id_owner) => {
     const motorcycle = await Motorcycle.findByPk(id);
     if (!motorcycle) {
         throw new Error('Motocicleta no encontrada');
     }
 
-    const existPlate = await Motorcycle.findOne({ where: { plate, id_workshop } });
 
-    if (existPlate && existPlate.id !== id) {
-        throw new Error('Ya existe una motocicleta con esta placa en el taller');
+    if (plate !== undefined) {
+        const existPlate = await Motorcycle.findOne({ where: { plate, id_workshop: motorcycle.id_workshop } });
+
+        if (existPlate && existPlate.id !== id) {
+            throw new Error('Ya existe una motocicleta con esta placa en el taller');
+        }
+        motorcycle.plate = plate;
     }
-    
-    if(model !== undefined) motorcycle.model = model;
-    if(plate !== undefined) motorcycle.plate = plate;
-    if(year !== undefined) motorcycle.year = year;
-    if(id_workshop !== undefined) motorcycle.id_workshop = id_workshop;
-    if(id_brand !== undefined) motorcycle.id_brand = id_brand;
-    if(id_owner !== undefined) motorcycle.id_owner = id_owner;
+
+
+    if (model !== undefined) motorcycle.model = model;
+
+    if (year !== undefined) motorcycle.year = year;
+    if (id_brand !== undefined) motorcycle.id_brand = id_brand;
+    if (id_owner !== undefined) motorcycle.id_owner = id_owner;
 
     await motorcycle.save();
-    
+
     return motorcycle;
 }
 

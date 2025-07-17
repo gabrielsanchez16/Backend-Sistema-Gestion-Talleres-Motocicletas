@@ -81,14 +81,14 @@ const deleteById = async (req, res) => {
 
 const updateById = async (req, res) => {
     const { id } = req.params;
-    const { model, plate, year, id_workshop, id_brand, id_owner } = req.body;
+    const { model, plate, year, id_brand, id_owner } = req.body;
 
     if (!id) {
         return res.status(400).json({ message: 'El id de la motocicleta es obligatorio' });
     }
 
     try {
-        const response = await updateMotorcycle(id, model, plate, year, id_workshop, id_brand, id_owner);
+        const response = await updateMotorcycle(id, model, plate, year, id_brand, id_owner);
         res.status(200).json({
             message: `Motocicleta actualizada correctamente`,
             motorcycle: response
