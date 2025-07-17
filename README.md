@@ -15,10 +15,21 @@ Este documento resume los **siguientes pasos a seguir** ahora que ya tienes conf
 ## 🔒 Seguridad global
 
 - [x] Autenticación JWT funcionando
-- [ ] Middleware de autenticación (`authenticate.js`) aplicado a todas las rutas privadas
+- [x] Middleware de autenticación (`authenticate.js`) aplicado a todas las rutas privadas
 
 > 📌 Todas las rutas siguientes deben requerir token para acceder.
 
+## 📝 Estado del trabajo en el proyecto
 
-Me falta terminar de crear todos los endpoints para los diferentes servicios.
+- ✅ Auth
+- ✅ Brand
+- ✅ Motorcycle
+- ✅ Owner
+- ✅ Workshop
+- ⛔ Type
+- ⛔ Service
+- ⛔ WorkOrder
+- ⛔ Mechanic
+- ⛔ Photo
+- ⛔ ServiceByWork
 
