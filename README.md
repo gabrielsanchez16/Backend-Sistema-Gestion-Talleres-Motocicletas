@@ -37,3 +37,46 @@ Este documento resume los **siguientes pasos a seguir** ahora que ya tienes conf
 - ⛔ Photo
 - ⛔ ServiceByWork
 
+## 🚀 Instalación y configuración
+
+Sigue estos pasos para ejecutar el proyecto en tu entorno local:
+
+---
+
+### 1. 📁 Clonar el repositorio
+
+Primero, clona este repositorio en tu máquina local:
+
+```bash
+git clone https://github.com/gabrielsanchez16/Backend-Sistema-Gestion-Talleres-Motocicletas.git
+cd "Repo cloneado"
+```
+
+### 2. 📁 Instalar dependencias
+
+Instala las dependencias:
+
+```bash
+npm install
+```
+### 3. 📁 Configura tu .env
+
+Coloca las credenciales de tu maquina local:
+
+### 4. 📁 Corre migraciones y Seeders
+
+Instala las dependencias:
+
+```bash
+npx sequelize-cli db:migrate
+npx sequelize-cli db:seed:all
+```
+
+
+### 5. 📁 Corre el servidor
+
+Ya puedes correr el servidor y probarlo:
+
+```bash
+npm run server
+```
