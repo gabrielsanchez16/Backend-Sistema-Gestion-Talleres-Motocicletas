@@ -10,6 +10,8 @@ const initModels = require("./models/initModels")
 
 const workshopRouter = require('./routes/workshop.route.js').router
 const ownerRouter = require('./routes/owner.route.js').router
+const brandRouter = require('./routes/brand.route.js').router
+const motorcycleRouter = require('./routes/motorcycle.route.js').router
 
 //* Configuraciones Iniciales
 const app = express()
@@ -35,6 +37,8 @@ app.use(cors()) //permitiendo acceso
 app.use(express.json())
 app.use("/api/v1/workshop", workshopRouter);
 app.use("/api/v1/owner", ownerRouter);
+app.use("/api/v1/brand", brandRouter);
+app.use("/api/v1/motorcycle", motorcycleRouter);
 
 
 const port = process.env.PORT || 8000
