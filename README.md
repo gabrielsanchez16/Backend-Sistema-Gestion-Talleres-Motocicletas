@@ -63,6 +63,19 @@ npm install
 
 Coloca las credenciales de tu maquina local:
 
+```bash
+DB_NAME=system_workshop
+DB_USER=root
+DB_PASS=
+DB_HOST=127.0.0.1
+DB_PORT=3306
+PORT=8000
+JWT_SECRET=clave_secreta
+CLOUDINARY_NAME=nombre de cloudinary
+CLOUDINARY_KEY=llave de cloudinary
+CLOUDINARY_SECRET=clave secreta de cloudinary
+```
+
 ### 4. 📁 Corre migraciones y Seeders
 
 Instala las dependencias:
