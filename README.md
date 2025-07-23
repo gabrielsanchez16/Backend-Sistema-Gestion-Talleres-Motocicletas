@@ -23,7 +23,7 @@ Este documento resume los **siguientes pasos a seguir** ahora que ya tienes conf
 
 ### 🚧 Progreso del proyecto
 
-🟩🟩🟩🟩🟩🟩🟩⬜⬜⬜ 75%
+🟩🟩🟩🟩🟩🟩🟩🟩⬜⬜ 85%
 
 - ✅ Auth
 - ✅ Brand
@@ -32,7 +32,7 @@ Este documento resume los **siguientes pasos a seguir** ahora que ya tienes conf
 - ✅ Workshop
 - ✅ Type
 - ✅ Service
-- ⛔ WorkOrder
+- ✅  WorkOrder
 - ✅ Mechanic
 - ⛔ Photo
 - ⛔ ServiceByWork
