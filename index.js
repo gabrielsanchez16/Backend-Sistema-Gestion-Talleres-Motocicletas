@@ -4,7 +4,8 @@ const {db} = require('./config/db.js')
 const dotenv = require('dotenv')
 dotenv.config({path: ".env"})
 const initModels = require("./models/initModels")
-
+initModels() // Inicializar las asociaciones de los modelos
+const { WorkOrder} = require('./models/WorkOrder.js')
 
 //* Archivos de Rutas
 
@@ -16,6 +17,7 @@ const typeRouter = require('./routes/type.route.js').router
 const serviceRouter = require('./routes/service.route.js').router
 const mechanicRouter = require('./routes/mechanic.route.js').router
 const workOrderRouter = require('./routes/workOrder.route.js').router
+const serviceByWorkshopRouter = require('./routes/serviceByWorkshop.route.js').router
 
 //* Configuraciones Iniciales
 const app = express()
@@ -46,7 +48,8 @@ app.use("/api/v1/motorcycle", motorcycleRouter);
 app.use("/api/v1/type", typeRouter);
 app.use("/api/v1/mechanic", mechanicRouter);
 app.use("/api/v1/workOrder", workOrderRouter);
-
+app.use("/api/v1/serviceByWorkshop", serviceByWorkshopRouter);
+app.use("/api/v1/service", serviceRouter);
 
 const port = process.env.PORT || 8000
 

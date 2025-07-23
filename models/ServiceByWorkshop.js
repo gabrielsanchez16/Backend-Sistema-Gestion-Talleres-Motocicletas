@@ -20,6 +20,10 @@ const ServiceByWorkshop = db.define("service_by_workshop", {
         type: DataTypes.FLOAT,
         allowNull: false
     },
+    price_total: {
+        type: DataTypes.FLOAT,
+        allowNull: false
+    },
     id_order: {
         type: DataTypes.UUID,
         allowNull: false,

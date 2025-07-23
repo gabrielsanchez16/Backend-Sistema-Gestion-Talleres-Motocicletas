@@ -1,5 +1,6 @@
 const {WorkOrder} = require('../models/WorkOrder.js');
-
+const {ServiceByWorkshop} = require('../models/ServiceByWorkshop.js');
+const {Service} = require('../models/Service.js');
 
 
 const createWorkOrder = async (title,date,description,recommendations,price,id_motorcycle,id_mechanic) => {
@@ -20,15 +21,21 @@ const createWorkOrder = async (title,date,description,recommendations,price,id_m
 }
 
 const getWorkOrderById = async (id) => {
-    try {
-        const workOrder = await WorkOrder.findOne({
-            where: { id }
-        });
-        return workOrder;
-    } catch (error) {
-        throw error;
-    }
-}
+  const workOrder = await WorkOrder.findOne({
+    where: { id },
+    include: [
+      {
+        model: ServiceByWorkshop,
+        include: [
+          {
+            model: Service,
+          }
+        ]
+      }
+    ]
+  });
+  return workOrder;
+};
 
 const getWorkOrderByMotorcycle = async (id_motorcycle) => {
     try {

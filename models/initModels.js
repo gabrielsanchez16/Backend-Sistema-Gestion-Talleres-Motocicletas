@@ -1,13 +1,13 @@
-const Type = require('./Type.js');
-const Brand = require('./Brand.js');
-const Mechanic = require('./Mechanic.js');
-const Workshop = require('./Workshop.js');
-const WorkOrder = require('./WorkOrder.js');
-const Service = require('./Service.js');
-const ServiceByWork = require('./ServiceByWorkshop.js');
-const Motorcycle = require('./Motorcycle.js');
-const Photo = require('./Photo.js');
-const Owner = require('./Owner.js');
+const {Type} = require('./Type.js');
+const {Brand} = require('./Brand.js');
+const {Mechanic} = require('./Mechanic.js');
+const {Workshop} = require('./Workshop.js');
+const {WorkOrder} = require('./WorkOrder.js');
+const {Service} = require('./Service.js');
+const {ServiceByWorkshop} = require('./ServiceByWorkshop.js');
+const {Motorcycle} = require('./Motorcycle.js');
+const {Photo} = require('./Photo.js');
+const {Owner} = require('./Owner.js');
 
 const initModels = () => {
   // motorcycle -> brand
@@ -35,12 +35,18 @@ const initModels = () => {
   WorkOrder.hasMany(Photo, { foreignKey: 'id_order' });
 
   // service_by_work -> work_order
-  ServiceByWork.belongsTo(WorkOrder, { foreignKey: 'id_order' });
-  WorkOrder.hasMany(ServiceByWork, { foreignKey: 'id_order' });
+  ServiceByWorkshop.belongsTo(WorkOrder, { foreignKey: 'id_order' });
+  WorkOrder.hasMany(ServiceByWorkshop, {
+    foreignKey: 'id_order',
+  });
 
   // service_by_work -> service
-  ServiceByWork.belongsTo(Service, { foreignKey: 'id_service' });
-  Service.hasMany(ServiceByWork, { foreignKey: 'id_service' });
+  ServiceByWorkshop.belongsTo(Service, {
+    foreignKey: 'id_service',
+  });
+  Service.hasMany(ServiceByWorkshop, {
+    foreignKey: 'id_service'
+  });
 
   // service -> type
   Service.belongsTo(Type, { foreignKey: 'id_type' });
@@ -57,6 +63,8 @@ const initModels = () => {
   // owner -> workshop
   Owner.belongsTo(Workshop, { foreignKey: 'id_workshop' });
   Workshop.hasMany(Owner, { foreignKey: 'id_workshop' });
+
+
 };
 
 module.exports = initModels;

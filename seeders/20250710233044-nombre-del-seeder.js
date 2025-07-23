@@ -20,7 +20,7 @@ module.exports = {
         phone: '3012345678',
         email: 'info@motofix.com',
         logo: 'logo2.png',
-        password: 'otro_hash',
+        password: '$2b$10$j56dUONjIal.xYBp8F0dYO/hF43fFMWCYr05MF.kFZEdHVgW7yB9W',
         createdAt: new Date(),
         updatedAt: new Date()
       }
@@ -201,6 +201,99 @@ module.exports = {
         updatedAt: new Date()
       },
     ], {});
+    
+    await queryInterface.bulkInsert('type', [
+      {
+        id: 'a0b2c3d4-e5f6-7890-1234-56789abcdefh',
+        name: 'Mano de obra',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: 'a0b2c3d4-e5f6-7890-1234-56789abcdefi',
+        name: 'Repuesto',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
+    ]),
+
+    await queryInterface.bulkInsert('service', [
+      {
+        id: 'a0b2c3d4-e5f6-7890-1234-56789abcdefc',
+        name: 'Cambio de aceite',
+        brand: 'Cambio de aceite y filtro',
+        price: 50000,
+        quantity: 100,
+        id_type: 'a0b2c3d4-e5f6-7890-1234-56789abcdefh',
+        id_workshop: 'a1b2c3d4-e5f6-7890-1234-56789abcdef0',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: 'b2c3d4e5-f6a1-2345-6789-abcdef120456',
+        name: 'Revisión general',
+        brand: 'propio',
+        price: 100000,
+        quantity: 100,
+        id_type: 'a0b2c3d4-e5f6-7890-1234-56789abcdefh',
+        id_workshop: 'a1b2c3d4-e5f6-7890-1234-56789abcdef0',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
+    ], {});
+
+    await queryInterface.bulkInsert('mechanic', [
+      {
+        id: 'a0b2c3d4-e5f6-7890-1234-56789abcdefg',
+        name: 'Juanito',
+        id_workshop: 'a1b2c3d4-e5f6-7890-1234-56789abcdef0',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
+    ])
+
+    
+
+    await queryInterface.bulkInsert('work_order', [
+      {
+        id: 'a0b2c3d4-e5f6-7890-1234-56789abcdefj',
+        id_motorcycle: 'a0b2c3d4-e5x6-7890-1234-56789abcde00',
+        id_mechanic: 'a0b2c3d4-e5f6-7890-1234-56789abcdefg',
+        date: new Date(),
+        title: 'Mantenimiento general',
+        description: 'Mantenimiento general de la moto',
+        recommendations: 'Revisar frenos y luces',
+        price:250000,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
+    ], {});
+
+    await queryInterface.bulkInsert('service_by_workshop', [
+      {
+        id: 'a0b2c3d4-e5f6-7890-1234-56789abcdefk',
+        name_service: 'Cambio de aceite',
+        quantity_order: 1,
+        price_unit: 50000,
+        price_total: 50000,
+        id_order: 'a0b2c3d4-e5f6-7890-1234-56789abcdefj',
+        id_service: 'a0b2c3d4-e5f6-7890-1234-56789abcdefc',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        id: 'b2c3d4e5-f6a1-2345-6789-abcdef123457',
+        name_service: 'Revisión general',
+        quantity_order: 1,
+        price_unit: 100000,
+        price_total: 100000,
+        id_order: 'a0b2c3d4-e5f6-7890-1234-56789abcdefj',
+        id_service: 'b2c3d4e5-f6a1-2345-6789-abcdef120456',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
+    ], {});
+
 
   },
 
