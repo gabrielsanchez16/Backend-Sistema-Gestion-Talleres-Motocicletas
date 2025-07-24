@@ -12,6 +12,10 @@ const Photo = db.define("photo", {
         type: DataTypes.TEXT,
         allowNull: false
     },
+    public_id: {
+        type: DataTypes.STRING,
+        allowNull: true
+    }, 
     id_order: {
         type: DataTypes.UUID,
         allowNull: false,

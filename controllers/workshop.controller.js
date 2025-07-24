@@ -17,6 +17,7 @@ const createWorkshop = async (name, phone, email, password, logo, id_logo_public
         phone,
         email,
         password,
+        suscription: false, // Default value for new workshops
         logo,
         id_logo_public
     });

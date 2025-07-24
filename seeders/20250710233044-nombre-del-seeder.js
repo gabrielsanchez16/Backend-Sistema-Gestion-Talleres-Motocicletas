@@ -9,6 +9,7 @@ module.exports = {
         name: 'Taller Los Amigos',
         phone: '3123456789',
         email: 'contacto@losamigos.com',
+        suscription: false,
         logo: 'logo.png',
         password: 'hashed_password', // recuerda hashearla si es real
         createdAt: new Date(),
@@ -18,6 +19,7 @@ module.exports = {
         id: 'b2c3d4e5-f6a1-2345-6789-abcdef123456',
         name: 'MotoFix Express',
         phone: '3012345678',
+        suscription: false,
         email: 'info@motofix.com',
         logo: 'logo2.png',
         password: '$2b$10$j56dUONjIal.xYBp8F0dYO/hF43fFMWCYr05MF.kFZEdHVgW7yB9W',

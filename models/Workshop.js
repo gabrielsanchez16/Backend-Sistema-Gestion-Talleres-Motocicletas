@@ -17,6 +17,10 @@ const Workshop = db.define("workshop", {
         type: DataTypes.STRING,
         allowNull: false
     },
+    suscription:{
+        type: DataTypes.BOOLEAN,
+        allowNull: false
+    },
     email: {
         type: DataTypes.STRING,
         allowNull: false,

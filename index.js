@@ -18,6 +18,7 @@ const serviceRouter = require('./routes/service.route.js').router
 const mechanicRouter = require('./routes/mechanic.route.js').router
 const workOrderRouter = require('./routes/workOrder.route.js').router
 const serviceByWorkshopRouter = require('./routes/serviceByWorkshop.route.js').router
+const photoRouter = require('./routes/photo.route.js').router
 
 //* Configuraciones Iniciales
 const app = express()
@@ -50,6 +51,7 @@ app.use("/api/v1/mechanic", mechanicRouter);
 app.use("/api/v1/workOrder", workOrderRouter);
 app.use("/api/v1/serviceByWorkshop", serviceByWorkshopRouter);
 app.use("/api/v1/service", serviceRouter);
+app.use("/api/v1/photo", photoRouter);
 
 const port = process.env.PORT || 8000
 

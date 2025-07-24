@@ -11,7 +11,7 @@ const handleValidation = require('../middlewares/ErrosValidation/handleValidatio
 const validateLogin  = require('../middlewares/Login/validateLogin.js');
 const authenticate = require('../middlewares/Auth/auth.middleware.js')
 
-const upload = require('../middlewares/Multer/multer.js');
+const {upload} = require('../middlewares/Multer/multer.js');
 
 
 

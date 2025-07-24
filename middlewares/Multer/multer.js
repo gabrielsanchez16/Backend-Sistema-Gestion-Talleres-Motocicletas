@@ -13,6 +13,22 @@ const storage = new CloudinaryStorage({
   }
 });
 
+const storagePhotos = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'OrderPhotos', // Carpeta en Cloudinary
+    allowed_formats: ['jpg', 'png', 'jpeg'],
+    public_id: (req, file) => {
+      return `${Date.now()}-${file.originalname}`;
+    }
+  }
+});
+
 const upload = multer({ storage });
 
-module.exports = upload;
+const uploadPhotos = multer({ storage: storagePhotos });
+
+module.exports = {
+  upload,
+  uploadPhotos
+};

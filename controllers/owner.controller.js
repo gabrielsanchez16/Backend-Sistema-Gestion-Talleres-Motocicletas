@@ -1,3 +1,4 @@
+const { Motorcycle } = require('../models/Motorcycle.js');
 const {Owner} = require('../models/Owner.js');
 
 
@@ -65,7 +66,11 @@ const updateOwner = async (id, name, identification, phone, email) => {
 
 const deleteOwner = async (id) => {
     const owner = await Owner.findByPk(id);
+    const motorcycles = await Motorcycle.findAll({ where: { id_owner: id } });
 
+    if (motorcycles.length > 0) {
+        throw new Error('No se puede eliminar el propietario porque tiene motocicletas asociadas');
+    }
     if (!owner) {
         throw new Error('Propietario no encontrado');
     }
