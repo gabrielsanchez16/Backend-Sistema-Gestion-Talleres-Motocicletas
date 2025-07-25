@@ -22,16 +22,16 @@ const login = async (email, password) => {
     const payload = {
         id: workshop.id,
         name: workshop.name,
-        email: workshop.email
+        email: workshop.email,
+        phone: workshop.phone,
+        suscription: workshop.suscription,
+        logo: workshop.logo,
     };
 
     const token = jwt.sign(payload, SECRET, { expiresIn: '8h' });
-    
-    // Convertir a objeto plano y eliminar la contraseña
-    const workshopData = workshop.toJSON();
-    delete workshopData.password;
 
-    return { token, workshop: workshopData };
+
+    return { token };
 };
 
 module.exports = {

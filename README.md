@@ -23,7 +23,7 @@ Este documento resume los **siguientes pasos a seguir** ahora que ya tienes conf
 
 ### 🚧 Progreso del proyecto
 
-🟩🟩🟩🟩🟩🟩🟩🟩🟩⬜ 95%
+🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 100%
 
 - ✅ Auth
 - ✅ Brand
