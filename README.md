@@ -34,7 +34,7 @@ Este documento resume los **siguientes pasos a seguir** ahora que ya tienes conf
 - ✅ Service
 - ✅  WorkOrder
 - ✅ Mechanic
-- ⛔ Photo
+- ✅ Photo
 - ✅ ServiceByWork
 
 ## 🚀 Instalación y configuración

@@ -1,6 +1,6 @@
 const { Motorcycle } = require('../models/Motorcycle.js');
 const {Owner} = require('../models/Owner.js');
-
+const {Workshop} = require('../models/Workshop.js')
 
 
 const createOwner = async (name,identification,id_workshop,phone,email) => {
@@ -8,7 +8,7 @@ const createOwner = async (name,identification,id_workshop,phone,email) => {
     if (existOwner) {
         throw new Error('Ya existe un propietario con esta identificación');
     };
-    const existWorkshop = await Owner.findOne({ where: { id_workshop } });
+    const existWorkshop = await Workshop.findOne({ where: { id:id_workshop } });
     if (!existWorkshop) {
         throw new Error('Taller no encontrado');
     }

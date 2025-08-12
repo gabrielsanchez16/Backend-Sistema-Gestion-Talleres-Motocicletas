@@ -1,5 +1,7 @@
 const { Motorcycle } = require('../models/Motorcycle.js');
-
+const {Owner} = require("../models/Owner.js")
+const {Brand} = require("../models/Brand.js");
+const { WorkOrder } = require('../models/WorkOrder.js');
 
 const createMotorcycle = async (model, plate, year, id_workshop, id_brand, id_owner) => {
     const existMotorcycle = await Motorcycle.findOne({ where: { plate,id_workshop  } });
@@ -22,16 +24,39 @@ const getAllMotorcycles = async (id_workshop) => {
     let motorcycles = await Motorcycle.findAll({
         where: {
             id_workshop
-        }
+        },
+        include: [
+            {
+                model: Owner
+            },
+            {
+                model:Brand
+            },
+            {
+                model:WorkOrder
+            }
+        ]
     });
     if (!motorcycles || motorcycles.length === 0) {
-        motorcycles = "No hay motocicletas registradas en este taller";
+        motorcycles = []
     }
     return motorcycles;
 }
 
 const getMotorcycleById = async (id) => {
-    let motorcycle = await Motorcycle.findByPk(id);
+    let motorcycle = await Motorcycle.findByPk(id,{
+        include: [
+            {
+                model: Owner
+            },
+            {
+                model:Brand
+            },
+            {
+                model:WorkOrder
+            }
+        ]
+    });
     if (!motorcycle) {
         motorcycle = 'Motocicleta no encontrada';
     }

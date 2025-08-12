@@ -10,7 +10,7 @@ const validateCreateMotorcycle = [
 
     body('year')
         .notEmpty().withMessage('El año es obligatorio')
-        .isInt({ min: 1990 }).withMessage('El año debe ser un número entero mayor o igual a 1990'),
+        .isDate().withMessage('El año debe mayor o igual a 1990'),
 
     body('id_workshop')
         .notEmpty().withMessage('El id del taller es obligatorio'),
